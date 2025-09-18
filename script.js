@@ -4,11 +4,10 @@ let thiefBtn = document.querySelector(".thief-btn");
 let conatiner = document.querySelectorAll(".container");
 let buttons = document.querySelectorAll(".btn");
 
+function createCard(button) {
+    if (button.classList.contains("active")) return;
 
-warriorBtn.addEventListener("click", () => {
-    if (warriorBtn.classList.contains("active")) return; 
-
-    warriorBtn.classList.add("active");
+    button.classList.add("active");
 
     const card = document.createElement("div");
     card.style.borderTop = "4px ridge var(--golden-yellow)";
@@ -21,7 +20,7 @@ warriorBtn.addEventListener("click", () => {
     card.style.height = "150px";
 
     const closeBtn = document.createElement("button");
-    closeBtn.textContent ="X";
+    closeBtn.textContent = "X";
     closeBtn.style.borderTop = "4px ridge var(--golden-yellow)";
     closeBtn.style.borderBottom = "4px groove var(--golden-yellow)";
     closeBtn.style.borderRight = "4px ridge var(--golden-yellow)";
@@ -31,14 +30,27 @@ warriorBtn.addEventListener("click", () => {
     closeBtn.style.margin = "5px";
     closeBtn.style.color = "var(--golden-yellow)";
     closeBtn.style.borderRadius = "8px";
-    closeBtn.addEventListener("click", ()=>{
+    closeBtn.addEventListener("click", () => {
         card.remove();
-        warriorBtn.classList.remove("active");
+        button.classList.remove("active");
     })
 
     // Append elements
     card.appendChild(closeBtn)
 
     document.body.appendChild(card);
+}
+
+
+warriorBtn.addEventListener("click", () => {
+    createCard(warriorBtn);
+});
+
+mageBtn.addEventListener("click", () => {
+    createCard(mageBtn);
+});
+
+thiefBtn.addEventListener("click", () => {
+    createCard(thiefBtn);
 });
 
