@@ -1,0 +1,8 @@
+:root{
+    --papyrus-yellow: #f5edd6
+}
+
+body{
+    font-family: "MedievalSharp", cursive;
+    background-color: var(--papyrus-yellow)
+}
