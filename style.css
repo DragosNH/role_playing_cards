@@ -39,7 +39,7 @@ body{
   box-shadow: 0px 0 5px 5px rgba(255,255,255,0.2)
 }
 
-.btn:active{
+.btn.active{
   background: radial-gradient(circle, #ec6a6a, #e52b2b);
   box-shadow: 0px 0 5px 5px rgba(255,255,255,0.2)
 }
