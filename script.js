@@ -4,20 +4,33 @@ let thiefBtn = document.querySelector(".thief-btn");
 let conatiner = document.querySelectorAll(".container");
 let buttons = document.querySelectorAll(".btn");
 
-function createCard(button) {
+function createCard(button, title) {
     if (button.classList.contains("active")) return;
 
     button.classList.add("active");
 
     const card = document.createElement("div");
+    card.classList.add("char-card");
     card.style.borderTop = "4px ridge var(--golden-yellow)";
     card.style.borderBottom = "4px groove var(--golden-yellow)";
     card.style.borderRight = "4px ridge var(--golden-yellow)";
     card.style.borderLeft = "4px groove var(--golden-yellow)";
     card.style.borderRadius = "8px";
     card.style.margin = "15px";
-    card.style.width = "150px";
-    card.style.height = "150px";
+
+    
+    const header = document.createElement("div");
+    header.style.display = "flex";
+    header.style.flexDirection = "row-reverse";
+    header.style.alignItems = "center";
+    header.style.justifyContent = "space-between";
+
+    header.style.margin = "auto 15px"
+
+
+    const charName = document.createElement("h2");
+    charName.textContent = title;
+    
 
     const closeBtn = document.createElement("button");
     closeBtn.textContent = "X";
@@ -36,21 +49,24 @@ function createCard(button) {
     })
 
     // Append elements
-    card.appendChild(closeBtn)
+    card.appendChild(header)
+
+    header.appendChild(closeBtn)
+    header.appendChild(charName)
 
     document.body.appendChild(card);
 }
 
 
 warriorBtn.addEventListener("click", () => {
-    createCard(warriorBtn);
+    createCard(warriorBtn, "Warrior");
 });
 
 mageBtn.addEventListener("click", () => {
-    createCard(mageBtn);
+    createCard(mageBtn, "Mage");
 });
 
 thiefBtn.addEventListener("click", () => {
-    createCard(thiefBtn);
+    createCard(thiefBtn, "Thief");
 });
 
