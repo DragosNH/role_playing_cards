@@ -4,14 +4,18 @@ let thiefBtn = document.querySelector(".thief-btn");
 let conatiner = document.querySelectorAll(".container");
 let buttons = document.querySelectorAll(".btn");
 
+const cardsContainer = document.createElement("div");
+cardsContainer.classList.add("cards");
+
 function createCard(button, title) {
     if (button.classList.contains("active")) return;
 
     button.classList.add("active");
 
+
     const card = document.createElement("div");
     card.classList.add("char-card");
-    
+
     const header = document.createElement("div");
     header.classList.add("card-header");
 
@@ -26,12 +30,12 @@ function createCard(button, title) {
         card.remove();
         button.classList.remove("active");
     })
-    
+
 
     // Add a name to the character and then remove the input
     const playerName = document.createElement("input")
-    playerName.addEventListener("keydown", e=>{
-        if(e.key === 'Enter'){
+    playerName.addEventListener("keydown", e => {
+        if (e.key === 'Enter') {
             const addedPlayerName = document.createElement("h3");
             addedPlayerName.innerText = playerName.value;
             playerName.remove();
@@ -39,10 +43,11 @@ function createCard(button, title) {
         }
     })
 
+    // Stats
     const statsDiv = document.createElement("div");
     let health = document.createElement("p");
     let healthValue = 100;
-    let stamina =  document.createElement("p");
+    let stamina = document.createElement("p");
     let staminaValue = 100;
     let mana = document.createElement("p");
     let manaValue = 100;
@@ -51,7 +56,7 @@ function createCard(button, title) {
     let intellect = document.createElement("p");
     let intellectValue = 10;
 
-    if (button === warriorBtn){
+    if (button === warriorBtn) {
         health.innerText = "Health: " + healthValue;
         staminaValue += 50
         stamina.innerText = "Stamina: " + staminaValue;
@@ -61,7 +66,7 @@ function createCard(button, title) {
         intellectValue -= 6;
         intellect.innerText = "Intellect: " + intellectValue;
     }
-    if (button === mageBtn){
+    if (button === mageBtn) {
         health.innerText = "Health: " + healthValue;
         staminaValue -= 20
         stamina.innerText = "Stamina: " + staminaValue;
@@ -72,7 +77,7 @@ function createCard(button, title) {
         intellect.innerText = "Intellect: " + intellectValue;
 
     }
-    if (button === thiefBtn){
+    if (button === thiefBtn) {
         health.innerText = "Health: " + healthValue;
         staminaValue += 20
         stamina.innerText = "Stamina: " + staminaValue;
@@ -85,6 +90,8 @@ function createCard(button, title) {
     }
 
     // Append elements
+    cardsContainer.appendChild(card);
+
     card.appendChild(header);
     card.appendChild(playerName);
     card.appendChild(statsDiv);
@@ -97,7 +104,7 @@ function createCard(button, title) {
     header.appendChild(closeBtn);
     header.appendChild(charName);
 
-    document.body.appendChild(card);
+    document.body.appendChild(cardsContainer);
 }
 
 
