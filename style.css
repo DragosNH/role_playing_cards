@@ -43,3 +43,32 @@ body{
   background: radial-gradient(circle, #ec6a6a, #e52b2b);
   box-shadow: 0px 0 5px 5px rgba(255,255,255,0.2)
 }
+
+.char-card{
+  border-top: 4px ridge var(--golden-yellow);
+  border-bottom: 4px groove var(--golden-yellow);
+  border-right: 4px ridge var(--golden-yellow);
+  border-left: 4px groove var(--golden-yellow);
+  border-radius: 8px;
+  margin: 15px;
+}
+
+.card-header{
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto 15px;
+}
+
+.close-btn{
+  border-top: 4px ridge var(--golden-yellow);
+  border-left: 4px groove var(--golden-yellow);
+  border-right: 4px ridge var(--golden-yellow);
+  border-bottom: 4px groove var(--golden-yellow);
+  background: radial-gradient(circle, #8b0000, #8b0000);
+  font-size: 25px;
+  margin: 5px;
+  color: var(--golden-yellow);
+  border-radius: 8px;
+}

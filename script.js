@@ -11,38 +11,17 @@ function createCard(button, title) {
 
     const card = document.createElement("div");
     card.classList.add("char-card");
-    card.style.borderTop = "4px ridge var(--golden-yellow)";
-    card.style.borderBottom = "4px groove var(--golden-yellow)";
-    card.style.borderRight = "4px ridge var(--golden-yellow)";
-    card.style.borderLeft = "4px groove var(--golden-yellow)";
-    card.style.borderRadius = "8px";
-    card.style.margin = "15px";
-
     
     const header = document.createElement("div");
-    header.style.display = "flex";
-    header.style.flexDirection = "row-reverse";
-    header.style.alignItems = "center";
-    header.style.justifyContent = "space-between";
-
-    header.style.margin = "auto 15px"
-
+    header.classList.add("card-header");
 
     const charName = document.createElement("h2");
     charName.textContent = title;
     
 
     const closeBtn = document.createElement("button");
+    closeBtn.classList.add("close-btn");
     closeBtn.textContent = "X";
-    closeBtn.style.borderTop = "4px ridge var(--golden-yellow)";
-    closeBtn.style.borderBottom = "4px groove var(--golden-yellow)";
-    closeBtn.style.borderRight = "4px ridge var(--golden-yellow)";
-    closeBtn.style.borderLeft = "4px groove var(--golden-yellow)";
-    closeBtn.style.background = "radial-gradient(circle, #8b0000, #8b0000)";
-    closeBtn.style.fontSize = "25px";
-    closeBtn.style.margin = "5px";
-    closeBtn.style.color = "var(--golden-yellow)";
-    closeBtn.style.borderRadius = "8px";
     closeBtn.addEventListener("click", () => {
         card.remove();
         button.classList.remove("active");
