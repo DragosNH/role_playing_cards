@@ -9,6 +9,7 @@ function createCard(button, title) {
 
     button.classList.add("active");
 
+
     const card = document.createElement("div");
     card.classList.add("char-card");
     
@@ -17,7 +18,6 @@ function createCard(button, title) {
 
     const charName = document.createElement("h2");
     charName.textContent = title;
-    
 
     const closeBtn = document.createElement("button");
     closeBtn.classList.add("close-btn");
@@ -27,11 +27,23 @@ function createCard(button, title) {
         button.classList.remove("active");
     })
 
-    // Append elements
-    card.appendChild(header)
+    const playerName = document.createElement("input")
+    playerName.addEventListener("keydown", e=>{
+        if(e.key === 'Enter'){
+            const addedPlayerName = document.createElement("h3");
+            addedPlayerName.innerText = playerName.value;
+            playerName.remove();
+            card.appendChild(addedPlayerName);
 
-    header.appendChild(closeBtn)
-    header.appendChild(charName)
+        }
+    })
+
+    // Append elements
+    card.appendChild(header);
+    card.appendChild(playerName);
+
+    header.appendChild(closeBtn);
+    header.appendChild(charName);
 
     document.body.appendChild(card);
 }

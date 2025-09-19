@@ -51,6 +51,9 @@ body{
   border-left: 4px groove var(--golden-yellow);
   border-radius: 8px;
   margin: 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .card-header{
