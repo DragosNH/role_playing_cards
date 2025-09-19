@@ -26,6 +26,7 @@ function createCard(button, title) {
         card.remove();
         button.classList.remove("active");
     })
+    
 
     // Add a name to the character and then remove the input
     const playerName = document.createElement("input")
@@ -45,6 +46,10 @@ function createCard(button, title) {
     let staminaValue = 100;
     let mana = document.createElement("p");
     let manaValue = 100;
+    let strenght = document.createElement("p");
+    let strenghtValue = 10;
+    let intellect = document.createElement("p");
+    let intellectValue = 10;
 
     if (button === warriorBtn){
         health.innerText = "Health: " + healthValue;
@@ -52,6 +57,9 @@ function createCard(button, title) {
         stamina.innerText = "Stamina: " + staminaValue;
         manaValue -= 20
         mana.innerText = "Mana: " + manaValue;
+        strenght.innerText = "Strenght: " + strenghtValue;
+        intellectValue -= 6;
+        intellect.innerText = "Intellect: " + intellectValue;
     }
     if (button === mageBtn){
         health.innerText = "Health: " + healthValue;
@@ -59,12 +67,21 @@ function createCard(button, title) {
         stamina.innerText = "Stamina: " + staminaValue;
         manaValue += 50
         mana.innerText = "Mana: " + manaValue;
+        strenghtValue -= 4
+        strenght.innerText = "Strenght: " + strenghtValue;
+        intellect.innerText = "Intellect: " + intellectValue;
+
     }
     if (button === thiefBtn){
         health.innerText = "Health: " + healthValue;
         staminaValue += 20
         stamina.innerText = "Stamina: " + staminaValue;
         mana.innerText = "Mana: " + manaValue;
+        strenghtValue -= 2
+        strenght.innerText = "Strenght: " + strenghtValue;
+        intellectValue -= 4;
+        intellect.innerText = "Intellect: " + intellectValue;
+
     }
 
     // Append elements
@@ -74,6 +91,8 @@ function createCard(button, title) {
     card.appendChild(health);
     card.appendChild(stamina);
     card.appendChild(mana);
+    card.appendChild(strenght);
+    card.appendChild(intellect);
 
     header.appendChild(closeBtn);
     header.appendChild(charName);
