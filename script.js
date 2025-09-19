@@ -38,8 +38,8 @@ function createCard(button, title) {
         if (e.key === 'Enter') {
             const addedPlayerName = document.createElement("h3");
             addedPlayerName.innerText = playerName.value;
+            playerName.replaceWith(addedPlayerName);
             playerName.remove();
-            card.appendChild(addedPlayerName);
         }
     })
 
@@ -95,11 +95,11 @@ function createCard(button, title) {
     card.appendChild(header);
     card.appendChild(playerName);
     card.appendChild(statsDiv);
-    card.appendChild(health);
-    card.appendChild(stamina);
-    card.appendChild(mana);
-    card.appendChild(strenght);
-    card.appendChild(intellect);
+    statsDiv.appendChild(health);
+    statsDiv.appendChild(stamina);
+    statsDiv.appendChild(mana);
+    statsDiv.appendChild(strenght);
+    statsDiv.appendChild(intellect);
 
     header.appendChild(closeBtn);
     header.appendChild(charName);
