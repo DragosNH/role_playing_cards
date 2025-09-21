@@ -90,12 +90,18 @@ function createCard(button, title) {
                 itemsInput.remove();
             }
 
-
-
             itemsDiv.appendChild(newItem);
             itemsDiv.appendChild(removeItem);
         }
     });
+
+    // Charcter's money
+    const moneyCount = document.createElement("div");
+    moneyCount.classList.add("moneyContainer");
+
+    let moneyTitle = document.createElement("h3");
+    moneyTitle.innerText = "Money :"
+
 
     if (button === warriorBtn) {
         health.innerText = "Health: " + healthValue;
@@ -143,6 +149,9 @@ function createCard(button, title) {
     statsDiv.appendChild(intellect);
     card.appendChild(itemsTitle);
     card.appendChild(itemsInput);
+    card.appendChild(moneyCount);
+
+    moneyCount.appendChild(moneyTitle);
 
     header.appendChild(closeBtn);
     header.appendChild(charName);
