@@ -81,3 +81,18 @@ body{
   color: var(--golden-yellow);
   border-radius: 8px;
 }
+
+.new-item{
+  margin: 5px;
+}
+
+.itemsContainer{
+  display: flex;
+}
+
+.removeItemBtn{
+  border: none;
+  background: none;
+  color: var(--golden-yellow);
+  font-size: 18px;
+}

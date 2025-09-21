@@ -40,7 +40,7 @@ function createCard(button, title) {
             playerName.innerText = playerNameInput.value;
             playerNameInput.replaceWith(playerName);
         }
-    })
+    });
 
     // Stats
     const statsDiv = document.createElement("div");
@@ -60,6 +60,42 @@ function createCard(button, title) {
     itemsTitle.innerText = "Items";
 
     const itemsInput = document.createElement("input");
+    let itemsCount = 0;
+    itemsInput.addEventListener("keydown", e => {
+        if (e.key === "Enter" && itemsCount < 3) {
+            const itemsDiv = document.createElement("div");
+            itemsDiv.classList.add("itemsContainer");
+
+            let newItem = document.createElement("p");
+            newItem.classList.add("new-item");
+            newItem.innerText = itemsInput.value;
+
+            let removeItem = document.createElement("button");
+            removeItem.classList.add("removeItemBtn");
+            removeItem.innerText = "X";
+
+            removeItem.addEventListener("click", () => {
+                itemsDiv.remove();
+                itemsCount--;
+
+                if (itemsCount < 3 && !card.contains(itemsInput)) {
+                    card.appendChild(itemsInput);
+                }
+            });
+
+            itemsInput.before(itemsDiv);
+            itemsInput.value = "";
+            itemsCount++;
+            if (itemsCount === 3) {
+                itemsInput.remove();
+            }
+
+
+
+            itemsDiv.appendChild(newItem);
+            itemsDiv.appendChild(removeItem);
+        }
+    });
 
     if (button === warriorBtn) {
         health.innerText = "Health: " + healthValue;
@@ -106,6 +142,7 @@ function createCard(button, title) {
     statsDiv.appendChild(strenght);
     statsDiv.appendChild(intellect);
     card.appendChild(itemsTitle);
+    card.appendChild(itemsInput);
 
     header.appendChild(closeBtn);
     header.appendChild(charName);
