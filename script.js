@@ -33,13 +33,12 @@ function createCard(button, title) {
 
 
     // Add a name to the character and then remove the input
-    const playerName = document.createElement("input")
-    playerName.addEventListener("keydown", e => {
+    const playerNameInput = document.createElement("input")
+    playerNameInput.addEventListener("keydown", e => {
         if (e.key === 'Enter') {
-            const addedPlayerName = document.createElement("h3");
-            addedPlayerName.innerText = playerName.value;
-            playerName.replaceWith(addedPlayerName);
-            playerName.remove();
+            const playerName = document.createElement("h3");
+            playerName.innerText = playerNameInput.value;
+            playerNameInput.replaceWith(playerName);
         }
     })
 
@@ -93,7 +92,7 @@ function createCard(button, title) {
     cardsContainer.appendChild(card);
 
     card.appendChild(header);
-    card.appendChild(playerName);
+    card.appendChild(playerNameInput);
     card.appendChild(statsDiv);
     statsDiv.appendChild(health);
     statsDiv.appendChild(stamina);
