@@ -110,16 +110,27 @@ function createCard(button, title) {
     updateMoney();
 
     const plusOne = document.createElement("button");
+    plusOne.classList.add("money-btn");
     plusOne.innerText = "+1";
+
     const minusOne = document.createElement("button");
+    minusOne.classList.add("money-btn");
     minusOne.innerText = "-1";
+
     const plusFive = document.createElement("button");
+    plusFive.classList.add("money-btn");
     plusFive.innerText = "+5";
+
     const minusFive = document.createElement("button");
+    minusFive.classList.add("money-btn");
     minusFive.innerText = "-5";
+
     const plusTen = document.createElement("button");
+    plusTen.classList.add("money-btn");
     plusTen.innerText = "+10";
+    
     const minusTen = document.createElement("button");
+    minusTen.classList.add("money-btn");
     minusTen.innerText = "-10";
 
     plusOne.addEventListener('click', () => {
