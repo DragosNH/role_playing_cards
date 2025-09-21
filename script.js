@@ -99,10 +99,70 @@ function createCard(button, title) {
     const moneyCount = document.createElement("div");
     moneyCount.classList.add("moneyContainer");
 
+    let moneyValue = 0
     let moneyTitle = document.createElement("h3");
-    moneyTitle.innerText = "Money :"
+    moneyTitle.innerText = "Money: " + moneyValue;
+
+    function updateMoney() {
+        moneyTitle.textContent = `Money: ${moneyValue}`;
+    }
+
+    updateMoney();
+
+    const plusOne = document.createElement("button");
+    plusOne.innerText = "+1";
+    const minusOne = document.createElement("button");
+    minusOne.innerText = "-1";
+    const plusFive = document.createElement("button");
+    plusFive.innerText = "+5";
+    const minusFive = document.createElement("button");
+    minusFive.innerText = "-5";
+    const plusTen = document.createElement("button");
+    plusTen.innerText = "+10";
+    const minusTen = document.createElement("button");
+    minusTen.innerText = "-10";
+
+    plusOne.addEventListener('click', () => {
+        moneyValue++;
+        updateMoney();
+    });
+
+    plusFive.addEventListener('click', () => {
+        moneyValue += 5;
+        updateMoney();
+    });
+
+    plusTen.addEventListener('click', () => {
+        moneyValue += 10;
+        updateMoney();
+    });
+
+    minusOne.addEventListener('click', () => {
+        moneyValue--;
+        updateMoney();
+        if (moneyValue <= 0){
+            moneyValue = 1
+        }
+    });
+
+    minusFive.addEventListener('click', () => {
+        moneyValue -= 5;
+        updateMoney();
+        if (moneyValue <= 5){
+            moneyValue = 1
+        }
+    });
+
+    minusTen.addEventListener('click', () => {
+        moneyValue -= 10;
+        updateMoney();
+        if (moneyValue <= 10){
+            moneyValue = 1
+        }
+    });
 
 
+    // Stats according to class
     if (button === warriorBtn) {
         health.innerText = "Health: " + healthValue;
         staminaValue += 50
@@ -152,6 +212,12 @@ function createCard(button, title) {
     card.appendChild(moneyCount);
 
     moneyCount.appendChild(moneyTitle);
+    moneyCount.appendChild(plusTen);
+    moneyCount.appendChild(plusFive);
+    moneyCount.appendChild(plusOne);
+    moneyCount.appendChild(minusOne);
+    moneyCount.appendChild(minusFive);
+    moneyCount.appendChild(minusTen);
 
     header.appendChild(closeBtn);
     header.appendChild(charName);
