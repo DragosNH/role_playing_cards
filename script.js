@@ -31,6 +31,8 @@ function createCard(button, title) {
         button.classList.remove("active");
     })
 
+    const emptyDiv = document.createElement("div");
+    emptyDiv.style.width = "5px"
 
     // Add a name to the character and then remove the input
     const playerNameInput = document.createElement("input");
@@ -128,7 +130,7 @@ function createCard(button, title) {
     const plusTen = document.createElement("button");
     plusTen.classList.add("money-btn");
     plusTen.innerText = "+10";
-    
+
     const minusTen = document.createElement("button");
     minusTen.classList.add("money-btn");
     minusTen.innerText = "-10";
@@ -232,6 +234,7 @@ function createCard(button, title) {
 
     header.appendChild(closeBtn);
     header.appendChild(charName);
+    header.appendChild(emptyDiv);
 
     document.body.appendChild(cardsContainer);
 }

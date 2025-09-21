@@ -68,16 +68,15 @@ body {
   align-items: center;
   justify-content: space-between;
   margin: auto 15px;
+  width: 100%;
 }
 
 .close-btn {
-  border-top: 4px ridge var(--golden-yellow);
-  border-left: 4px groove var(--golden-yellow);
-  border-right: 4px ridge var(--golden-yellow);
-  border-bottom: 4px groove var(--golden-yellow);
+  border: 2px solid var(--golden-yellow);
   background: radial-gradient(circle, #8b0000, #8b0000);
   font-size: 25px;
   margin: 5px;
+  margin-right: 15px;
   color: var(--golden-yellow);
   border-radius: 8px;
 }
