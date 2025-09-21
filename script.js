@@ -33,7 +33,7 @@ function createCard(button, title) {
 
 
     // Add a name to the character and then remove the input
-    const playerNameInput = document.createElement("input")
+    const playerNameInput = document.createElement("input");
     playerNameInput.addEventListener("keydown", e => {
         if (e.key === 'Enter') {
             const playerName = document.createElement("h3");
@@ -54,6 +54,12 @@ function createCard(button, title) {
     let strenghtValue = 10;
     let intellect = document.createElement("p");
     let intellectValue = 10;
+
+    // Add items to the character
+    const itemsTitle = document.createElement("h3");
+    itemsTitle.innerText = "Items";
+
+    const itemsInput = document.createElement("input");
 
     if (button === warriorBtn) {
         health.innerText = "Health: " + healthValue;
@@ -99,6 +105,7 @@ function createCard(button, title) {
     statsDiv.appendChild(mana);
     statsDiv.appendChild(strenght);
     statsDiv.appendChild(intellect);
+    card.appendChild(itemsTitle);
 
     header.appendChild(closeBtn);
     header.appendChild(charName);
