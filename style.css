@@ -105,6 +105,17 @@ body {
 }
 
 .weapons{
-  margin: 5px;
+  margin: 2px;
   display: flex;
+  flex-direction: column;
+}
+
+p {
+  margin: 5px;
+}
+
+.secondary-weapon{
+  margin: 2px;
+  display: flex;
+  align-items: center;
 }

@@ -175,14 +175,20 @@ function createCard(button, title) {
 
     const weaponsTitle = document.createElement("h3");
     weaponsTitle.innerText = "Weapons";
+    const weaponsContainer = document.createElement("div");
+    weaponsContainer.classList.add("weapons");
+    const secWeaponContainer = document.createElement("div");
+    secWeaponContainer.classList.add("secondary-weapon");
+
+
     let characterMainWeapon = document.createElement("p");
-    characterMainWeapon.classList.add("weapons");
     let characterSecondaryWeapon = document.createElement("p");
-    characterSecondaryWeapon.classList.add("weapons");
     let ammo = 0;
     const reduceAmmo = document.createElement("button");
+    reduceAmmo.classList.add("money-btn");
+
     reduceAmmo.innerText = "-";
-    reduceAmmo.classList.add("weapons");
+
 
 
     reduceAmmo.addEventListener("click", () => {
@@ -275,9 +281,14 @@ function createCard(button, title) {
     card.appendChild(itemsInput);
     card.appendChild(moneyCount);
     card.appendChild(weaponsTitle);
-    card.appendChild(characterMainWeapon);
-    card.appendChild(characterSecondaryWeapon);
-    card.appendChild(reduceAmmo);
+    card.appendChild(weaponsContainer);
+    card.appendChild(secWeaponContainer);
+
+    weaponsContainer.appendChild(characterMainWeapon);
+    weaponsContainer.appendChild(characterSecondaryWeapon);
+    weaponsContainer.appendChild(reduceAmmo);
+    secWeaponContainer.appendChild(characterSecondaryWeapon);
+    secWeaponContainer.appendChild(reduceAmmo);
 
     moneyCount.appendChild(moneyTitle);
     moneyCount.appendChild(plusTen);
