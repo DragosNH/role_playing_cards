@@ -103,7 +103,6 @@ function createCard(button, title) {
 
     let moneyValue = 0
     let moneyTitle = document.createElement("h3");
-    moneyTitle.innerText = "Money: " + moneyValue;
 
     function updateMoney() {
         moneyTitle.textContent = `Money: ${moneyValue}`;
@@ -153,7 +152,7 @@ function createCard(button, title) {
     minusOne.addEventListener('click', () => {
         moneyValue--;
         updateMoney();
-        if (moneyValue <= 0){
+        if (moneyValue <= 0) {
             moneyValue = 1
         }
     });
@@ -161,7 +160,7 @@ function createCard(button, title) {
     minusFive.addEventListener('click', () => {
         moneyValue -= 5;
         updateMoney();
-        if (moneyValue <= 5){
+        if (moneyValue <= 5) {
             moneyValue = 1
         }
     });
@@ -169,7 +168,7 @@ function createCard(button, title) {
     minusTen.addEventListener('click', () => {
         moneyValue -= 10;
         updateMoney();
-        if (moneyValue <= 10){
+        if (moneyValue <= 10) {
             moneyValue = 1
         }
     });
@@ -180,7 +179,38 @@ function createCard(button, title) {
     characterMainWeapon.classList.add("weapons");
     let characterSecondaryWeapon = document.createElement("p");
     characterSecondaryWeapon.classList.add("weapons");
-    let ammo = 0
+    let ammo = 0;
+    const reduceAmmo = document.createElement("button");
+    reduceAmmo.innerText = "-";
+    reduceAmmo.classList.add("weapons");
+
+
+    reduceAmmo.addEventListener("click", () => {
+        ammo--;
+        reduce_ammo();
+    })
+
+
+    function reduce_ammo() {
+        if (button === warriorBtn) {
+            characterSecondaryWeapon.textContent = `Bow: ${ammo} arrows`;
+            if(ammo <= 1){ammo = 1}
+        }
+        if (button === mageBtn) {
+            characterSecondaryWeapon.textContent = `Bomb: ${ammo}`
+            if(ammo <= 1){ammo = 1}
+
+
+        }
+        if (button === thiefBtn) {
+            characterSecondaryWeapon.textContent = `Trowing knifes: ${ammo}`
+            if(ammo <= 1){ammo = 1}
+
+
+        }
+    }
+    reduce_ammo()
+
 
 
     // Stats according to class
@@ -196,7 +226,7 @@ function createCard(button, title) {
 
         characterMainWeapon.innerText = "Sword";
         ammo = 20;
-        characterSecondaryWeapon.innerText = "Bow: " + ammo + " + arrows";
+        reduce_ammo()
     }
     if (button === mageBtn) {
         health.innerText = "Health: " + healthValue;
@@ -210,7 +240,7 @@ function createCard(button, title) {
 
         characterMainWeapon.innerText = "Staff";
         ammo = 5;
-        characterSecondaryWeapon.innerText = "Bomb: " + ammo;
+        reduce_ammo()
 
 
     }
@@ -226,7 +256,7 @@ function createCard(button, title) {
 
         characterMainWeapon.innerText = "Dagger x2";
         ammo = 15;
-        characterSecondaryWeapon.innerText = "Trowing knifes: " + ammo;
+        reduce_ammo()
 
     }
 
@@ -247,6 +277,7 @@ function createCard(button, title) {
     card.appendChild(weaponsTitle);
     card.appendChild(characterMainWeapon);
     card.appendChild(characterSecondaryWeapon);
+    card.appendChild(reduceAmmo);
 
     moneyCount.appendChild(moneyTitle);
     moneyCount.appendChild(plusTen);

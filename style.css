@@ -106,4 +106,5 @@ body {
 
 .weapons{
   margin: 5px;
+  display: flex;
 }
