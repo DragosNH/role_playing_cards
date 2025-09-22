@@ -174,6 +174,10 @@ function createCard(button, title) {
         }
     });
 
+    const weaponsTitle = document.createElement("h3");
+    weaponsTitle.innerText = "Weapons";
+    let characterWeapons = document.createElement("p");
+
 
     // Stats according to class
     if (button === warriorBtn) {
@@ -185,6 +189,8 @@ function createCard(button, title) {
         strenght.innerText = "Strenght: " + strenghtValue;
         intellectValue -= 6;
         intellect.innerText = "Intellect: " + intellectValue;
+
+        characterWeapons.innerText = "Sword";
     }
     if (button === mageBtn) {
         health.innerText = "Health: " + healthValue;
@@ -196,6 +202,9 @@ function createCard(button, title) {
         strenght.innerText = "Strenght: " + strenghtValue;
         intellect.innerText = "Intellect: " + intellectValue;
 
+        characterWeapons.innerText = "Staff";
+
+
     }
     if (button === thiefBtn) {
         health.innerText = "Health: " + healthValue;
@@ -206,6 +215,8 @@ function createCard(button, title) {
         strenght.innerText = "Strenght: " + strenghtValue;
         intellectValue -= 4;
         intellect.innerText = "Intellect: " + intellectValue;
+
+        characterWeapons.innerText = "Dagger x2"
 
     }
 
@@ -223,6 +234,8 @@ function createCard(button, title) {
     card.appendChild(itemsTitle);
     card.appendChild(itemsInput);
     card.appendChild(moneyCount);
+    card.appendChild(weaponsTitle);
+    card.appendChild(characterWeapons);
 
     moneyCount.appendChild(moneyTitle);
     moneyCount.appendChild(plusTen);
@@ -251,4 +264,3 @@ mageBtn.addEventListener("click", () => {
 thiefBtn.addEventListener("click", () => {
     createCard(thiefBtn, "Thief");
 });
-
