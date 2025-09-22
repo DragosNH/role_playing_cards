@@ -176,7 +176,11 @@ function createCard(button, title) {
 
     const weaponsTitle = document.createElement("h3");
     weaponsTitle.innerText = "Weapons";
-    let characterWeapons = document.createElement("p");
+    let characterMainWeapon = document.createElement("p");
+    characterMainWeapon.classList.add("weapons");
+    let characterSecondaryWeapon = document.createElement("p");
+    characterSecondaryWeapon.classList.add("weapons");
+    let ammo = 0
 
 
     // Stats according to class
@@ -190,7 +194,9 @@ function createCard(button, title) {
         intellectValue -= 6;
         intellect.innerText = "Intellect: " + intellectValue;
 
-        characterWeapons.innerText = "Sword";
+        characterMainWeapon.innerText = "Sword";
+        ammo = 20;
+        characterSecondaryWeapon.innerText = "Bow: " + ammo + " + arrows";
     }
     if (button === mageBtn) {
         health.innerText = "Health: " + healthValue;
@@ -202,7 +208,9 @@ function createCard(button, title) {
         strenght.innerText = "Strenght: " + strenghtValue;
         intellect.innerText = "Intellect: " + intellectValue;
 
-        characterWeapons.innerText = "Staff";
+        characterMainWeapon.innerText = "Staff";
+        ammo = 5;
+        characterSecondaryWeapon.innerText = "Bomb: " + ammo;
 
 
     }
@@ -216,7 +224,9 @@ function createCard(button, title) {
         intellectValue -= 4;
         intellect.innerText = "Intellect: " + intellectValue;
 
-        characterWeapons.innerText = "Dagger x2"
+        characterMainWeapon.innerText = "Dagger x2";
+        ammo = 15;
+        characterSecondaryWeapon.innerText = "Trowing knifes: " + ammo;
 
     }
 
@@ -235,7 +245,8 @@ function createCard(button, title) {
     card.appendChild(itemsInput);
     card.appendChild(moneyCount);
     card.appendChild(weaponsTitle);
-    card.appendChild(characterWeapons);
+    card.appendChild(characterMainWeapon);
+    card.appendChild(characterSecondaryWeapon);
 
     moneyCount.appendChild(moneyTitle);
     moneyCount.appendChild(plusTen);
