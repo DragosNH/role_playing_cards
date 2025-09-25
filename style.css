@@ -96,7 +96,7 @@ body {
   font-size: 18px;
 }
 
-.money-btn {
+button {
   border: 1px solid var(--golden-yellow);
   background: none;
   color: var(--golden-yellow);
@@ -116,6 +116,11 @@ p {
 
 .secondary-weapon{
   margin: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.attack-line{
   display: flex;
   align-items: center;
 }

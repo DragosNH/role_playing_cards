@@ -199,28 +199,49 @@ function createCard(button, title) {
     function reduce_ammo() {
         if (button === warriorBtn) {
             characterSecondaryWeapon.textContent = `Bow: ${ammo} arrows`;
-            if(ammo <= 1){ammo = 1}
+            if (ammo <= 1) { ammo = 1 }
         }
         if (button === mageBtn) {
             characterSecondaryWeapon.textContent = `Bomb: ${ammo}`
-            if(ammo <= 1){ammo = 1}
-
-
+            if (ammo <= 1) { ammo = 1 }
         }
         if (button === thiefBtn) {
             characterSecondaryWeapon.textContent = `Trowing knifes: ${ammo}`
-            if(ammo <= 1){ammo = 1}
-
-
+            if (ammo <= 1) { ammo = 1 }
         }
     }
     reduce_ammo()
 
     // ------ Attcks ------
     const attacksList = document.createElement("h3");
-    const attackContainer = document.createElement("div");
+    const attacksContainer = document.createElement("div");
+    const attacckLine = document.createElement("div");
+    attacckLine.classList.add("attack-line");
     const normalAttack = document.createElement("p");
+    const normalAttackBtn = document.createElement("button");
+    normalAttackBtn.innerText = "Use";
 
+    normalAttackBtn.addEventListener("click", () => {
+        staminaValue -= Math.floor(Math.random() * 10) + 5;
+        if (staminaValue <= 0){
+            healthValue -= Math.floor(Math.random() * 10) + 5;
+        }
+        reduce_stamina_normal_attack()
+
+    })
+
+    const reduce_stamina_normal_attack = () => {
+        stamina.innerText = `Stamina: ${staminaValue}`;
+        if (staminaValue <= 0){
+            health.innerText = `Health: ${healthValue}`;
+            staminaValue = 0;
+            if(healthValue <= 0){
+                card.remove()
+            }
+        }
+    }
+
+    reduce_stamina_normal_attack()
 
 
 
@@ -228,7 +249,6 @@ function createCard(button, title) {
     if (button === warriorBtn) {
         health.innerText = "Health: " + healthValue;
         staminaValue += 50
-        stamina.innerText = "Stamina: " + staminaValue;
         manaValue -= 20
         mana.innerText = "Mana: " + manaValue;
         strenght.innerText = "Strenght: " + strenghtValue;
@@ -239,8 +259,10 @@ function createCard(button, title) {
         ammo = 20;
         reduce_ammo()
 
-        attacksList.innerText = title +  "'s Attacks";
-        normalAttack.innerText = "Normal Attack"
+        attacksList.innerText = title + "'s Attacks";
+        normalAttack.innerText = "Normal Attack";
+        reduce_stamina_normal_attack()
+
 
     }
     if (button === mageBtn) {
@@ -257,7 +279,7 @@ function createCard(button, title) {
         ammo = 5;
         reduce_ammo()
 
-        attacksList.innerText = title +  "'s Attacks";
+        attacksList.innerText = title + "'s Attacks";
         normalAttack.innerText = "Normal Attack"
 
 
@@ -276,7 +298,7 @@ function createCard(button, title) {
         ammo = 15;
         reduce_ammo()
 
-        attacksList.innerText = title +  "'s Attacks";
+        attacksList.innerText = title + "'s Attacks";
         normalAttack.innerText = "Normal Attack"
 
 
@@ -300,8 +322,11 @@ function createCard(button, title) {
     card.appendChild(weaponsContainer);
     card.appendChild(secWeaponContainer);
     card.appendChild(attacksList);
-    card.appendChild(attackContainer);
-    attackContainer.appendChild(normalAttack);
+    card.appendChild(attacksContainer);
+
+    attacksContainer.appendChild(attacckLine);
+    attacckLine.appendChild(normalAttack);
+    attacckLine.appendChild(normalAttackBtn);
 
     weaponsContainer.appendChild(characterMainWeapon);
     weaponsContainer.appendChild(characterSecondaryWeapon);
