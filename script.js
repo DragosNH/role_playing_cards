@@ -160,16 +160,16 @@ function createCard(button, title) {
     minusFive.addEventListener('click', () => {
         moneyValue -= 5;
         updateMoney();
-        if (moneyValue <= 5) {
-            moneyValue = 1
+        if (moneyValue <= 0) {
+            moneyValue = 5
         }
     });
 
     minusTen.addEventListener('click', () => {
         moneyValue -= 10;
         updateMoney();
-        if (moneyValue <= 10) {
-            moneyValue = 1
+        if (moneyValue <= 0) {
+            moneyValue = 10
         }
     });
 
@@ -217,6 +217,9 @@ function createCard(button, title) {
     }
     reduce_ammo()
 
+    const attacksList = document.createElement("h3");
+
+
 
 
     // Stats according to class
@@ -233,6 +236,9 @@ function createCard(button, title) {
         characterMainWeapon.innerText = "Sword";
         ammo = 20;
         reduce_ammo()
+
+        attacksList.innerText = title +  "'s Attacks";
+
     }
     if (button === mageBtn) {
         health.innerText = "Health: " + healthValue;
@@ -247,6 +253,8 @@ function createCard(button, title) {
         characterMainWeapon.innerText = "Staff";
         ammo = 5;
         reduce_ammo()
+
+        attacksList.innerText = title +  "'s Attacks";
 
 
     }
@@ -263,6 +271,8 @@ function createCard(button, title) {
         characterMainWeapon.innerText = "Dagger x2";
         ammo = 15;
         reduce_ammo()
+
+        attacksList.innerText = title +  "'s Attacks";
 
     }
 
@@ -283,6 +293,7 @@ function createCard(button, title) {
     card.appendChild(weaponsTitle);
     card.appendChild(weaponsContainer);
     card.appendChild(secWeaponContainer);
+    card.appendChild(attacksList);
 
     weaponsContainer.appendChild(characterMainWeapon);
     weaponsContainer.appendChild(characterSecondaryWeapon);
