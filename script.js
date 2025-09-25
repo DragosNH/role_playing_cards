@@ -61,26 +61,33 @@ function createCard(button, title) {
     
     restBtn.addEventListener("click", ()=> {
         staminaValue += 15;
-        if(warriorBtn){
+        healthValue += 10;
+
+        if(button === warriorBtn){
             if(staminaValue >= 150){
                 staminaValue = 150
             }
         }
-        if(mageBtn){
+        if(button === mageBtn){
             if(staminaValue >= 80){
                 staminaValue = 80
             }
         }
-        if(thiefBtn){
+        if(button === thiefBtn){
             if(staminaValue >= 120){
                 staminaValue = 120
             }
+        }
+
+        if(healthValue >= 100){
+            healthValue = 100
         }
         rest()
     })
 
     const rest = () =>{
         stamina.innerText = `Stamina: ${staminaValue}`;
+        health.innerText = `Health: ${healthValue}`;
     }
 
 
