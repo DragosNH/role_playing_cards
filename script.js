@@ -173,6 +173,7 @@ function createCard(button, title) {
         }
     });
 
+    // ------ Weapons ------
     const weaponsTitle = document.createElement("h3");
     weaponsTitle.innerText = "Weapons";
     const weaponsContainer = document.createElement("div");
@@ -188,8 +189,6 @@ function createCard(button, title) {
     reduceAmmo.classList.add("money-btn");
 
     reduceAmmo.innerText = "-";
-
-
 
     reduceAmmo.addEventListener("click", () => {
         ammo--;
@@ -217,7 +216,10 @@ function createCard(button, title) {
     }
     reduce_ammo()
 
+    // ------ Attcks ------
     const attacksList = document.createElement("h3");
+    const attackContainer = document.createElement("div");
+    const normalAttack = document.createElement("p");
 
 
 
@@ -238,6 +240,7 @@ function createCard(button, title) {
         reduce_ammo()
 
         attacksList.innerText = title +  "'s Attacks";
+        normalAttack.innerText = "Normal Attack"
 
     }
     if (button === mageBtn) {
@@ -255,6 +258,7 @@ function createCard(button, title) {
         reduce_ammo()
 
         attacksList.innerText = title +  "'s Attacks";
+        normalAttack.innerText = "Normal Attack"
 
 
     }
@@ -273,6 +277,8 @@ function createCard(button, title) {
         reduce_ammo()
 
         attacksList.innerText = title +  "'s Attacks";
+        normalAttack.innerText = "Normal Attack"
+
 
     }
 
@@ -294,6 +300,8 @@ function createCard(button, title) {
     card.appendChild(weaponsContainer);
     card.appendChild(secWeaponContainer);
     card.appendChild(attacksList);
+    card.appendChild(attackContainer);
+    attackContainer.appendChild(normalAttack);
 
     weaponsContainer.appendChild(characterMainWeapon);
     weaponsContainer.appendChild(characterSecondaryWeapon);
