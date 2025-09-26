@@ -50,6 +50,8 @@ function createCard(button, title) {
     let healthValue = 100;
     let stamina = document.createElement("p");
     let staminaValue = 100;
+    let rage = document.createElement("p");
+    let rageValue = 0;
     let mana = document.createElement("p");
     let manaValue = 100;
     let strenght = document.createElement("p");
@@ -58,40 +60,40 @@ function createCard(button, title) {
     let intellectValue = 10;
     let restBtn = document.createElement("Button");
     restBtn.innerText = "Rest";
-    
-    restBtn.addEventListener("click", ()=> {
+
+    restBtn.addEventListener("click", () => {
         staminaValue += 15;
         healthValue += 10;
 
-        if(button === warriorBtn){
-            if(staminaValue >= 150){
+        if (button === warriorBtn) {
+            if (staminaValue >= 150) {
                 staminaValue = 150
             }
         }
-        if(button === mageBtn){
-            if(staminaValue >= 80){
+        if (button === mageBtn) {
+            if (staminaValue >= 80) {
                 staminaValue = 80
             }
         }
-        if(button === thiefBtn){
-            if(staminaValue >= 120){
+        if (button === thiefBtn) {
+            if (staminaValue >= 120) {
                 staminaValue = 120
             }
         }
 
-        if(healthValue >= 100){
+        if (healthValue >= 100) {
             healthValue = 100
         }
         rest()
     })
 
-    const rest = () =>{
+    const rest = () => {
         stamina.innerText = `Stamina: ${staminaValue}`;
         health.innerText = `Health: ${healthValue}`;
     }
 
 
-    
+
 
     // Add items to the character
     const itemsTitle = document.createElement("h3");
@@ -259,19 +261,26 @@ function createCard(button, title) {
 
     normalAttackBtn.addEventListener("click", () => {
         staminaValue -= Math.floor(Math.random() * 10) + 5;
-        if (staminaValue <= 0){
+        if (button === warriorBtn) {
+            rageValue += 10;
+            if (rageValue >= 100) {
+                rageValue = 100
+            }
+        }
+        if (staminaValue <= 0) {
             healthValue -= Math.floor(Math.random() * 5) + 1;
         }
-        reduce_stamina_normal_attack()
 
+        reduce_stamina_normal_attack()
     })
 
     const reduce_stamina_normal_attack = () => {
         stamina.innerText = `Stamina: ${staminaValue}`;
-        if (staminaValue <= 0){
+        rage.innerText = `Rage: ${rageValue}`;
+        if (staminaValue <= 0) {
             health.innerText = `Health: ${healthValue}`;
             staminaValue = 0;
-            if(healthValue <= 0){
+            if (healthValue <= 0) {
                 card.remove()
             }
         }
@@ -287,6 +296,7 @@ function createCard(button, title) {
         staminaValue += 50
         manaValue -= 20
         mana.innerText = "Mana: " + manaValue;
+        rage.innerText = "Rage: " + rageValue;
         strenght.innerText = "Strenght: " + strenghtValue;
         intellectValue -= 6;
         intellect.innerText = "Intellect: " + intellectValue;
@@ -349,6 +359,7 @@ function createCard(button, title) {
     statsDiv.appendChild(health);
     statsDiv.appendChild(stamina);
     statsDiv.appendChild(mana);
+    statsDiv.appendChild(rage);
     statsDiv.appendChild(strenght);
     statsDiv.appendChild(intellect);
     statsDiv.appendChild(restBtn);
