@@ -63,6 +63,7 @@ function createCard(button, title) {
 
     restBtn.addEventListener("click", () => {
         staminaValue += 15;
+        manaValue += 15;
         healthValue += 10;
 
         if (button === warriorBtn) {
@@ -70,7 +71,7 @@ function createCard(button, title) {
             if (staminaValue >= 150) {
                 staminaValue = 150
             }
-            if(rageValue <= 0){
+            if (rageValue <= 0) {
                 rageValue = 0;
             }
         }
@@ -78,12 +79,22 @@ function createCard(button, title) {
             if (staminaValue >= 80) {
                 staminaValue = 80
             }
+            if (manaValue >= 150) {
+                manaValue = 150
+            }
         }
         if (button === thiefBtn) {
             if (staminaValue >= 120) {
                 staminaValue = 120
             }
+            if (manaValue >= 100) {
+                manaValue = 100
+            }
         }
+        if (button === mageBtn || button === thiefBtn){
+            rage.remove()
+        }
+
 
         if (healthValue >= 100) {
             healthValue = 100
@@ -95,6 +106,7 @@ function createCard(button, title) {
         stamina.innerText = `Stamina: ${staminaValue}`;
         rage.innerText = `Stamina: ${rageValue}`;
         health.innerText = `Health: ${healthValue}`;
+        mana.innerText = `Mana: ${manaValue}`;
     }
 
 
@@ -273,9 +285,12 @@ function createCard(button, title) {
                 rageValue = 100
             }
         }
-        if (staminaValue <= 0) {
-            healthValue -= Math.floor(Math.random() * 5) + 1;
+        if (button === mageBtn || button == thiefBtn) {
+            if (staminaValue <= 0) {
+                healthValue -= Math.floor(Math.random() * 5) + 1;
+            }
         }
+
 
         reduce_stamina_normal_attack()
     })
