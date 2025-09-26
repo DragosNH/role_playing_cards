@@ -91,10 +91,14 @@ function createCard(button, title) {
                 manaValue = 100
             }
         }
+
         if (button === mageBtn || button === thiefBtn){
             rage.remove()
         }
 
+        if (button === warriorBtn){
+            mana.remove()
+        }
 
         if (healthValue >= 100) {
             healthValue = 100
@@ -104,7 +108,7 @@ function createCard(button, title) {
 
     const rest = () => {
         stamina.innerText = `Stamina: ${staminaValue}`;
-        rage.innerText = `Stamina: ${rageValue}`;
+        rage.innerText = `Rage: ${rageValue}`;
         health.innerText = `Health: ${healthValue}`;
         mana.innerText = `Mana: ${manaValue}`;
     }
@@ -366,8 +370,6 @@ function createCard(button, title) {
     if (button === warriorBtn) {
         health.innerText = "Health: " + healthValue;
         staminaValue += 50
-        manaValue -= 20
-        mana.innerText = "Mana: " + manaValue;
         rage.innerText = "Rage: " + rageValue;
         strenght.innerText = "Strenght: " + strenghtValue;
         intellectValue -= 6;
