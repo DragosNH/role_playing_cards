@@ -66,8 +66,12 @@ function createCard(button, title) {
         healthValue += 10;
 
         if (button === warriorBtn) {
+            rageValue -= 15;
             if (staminaValue >= 150) {
                 staminaValue = 150
+            }
+            if(rageValue <= 0){
+                rageValue = 0;
             }
         }
         if (button === mageBtn) {
@@ -89,6 +93,7 @@ function createCard(button, title) {
 
     const rest = () => {
         stamina.innerText = `Stamina: ${staminaValue}`;
+        rage.innerText = `Stamina: ${rageValue}`;
         health.innerText = `Health: ${healthValue}`;
     }
 
